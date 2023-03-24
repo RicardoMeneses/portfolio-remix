@@ -14,13 +14,13 @@ import { ServerStyleContext, ClientStyleContext } from './context';
 import { extendTheme, ChakraProvider, cookieStorageManagerSSR } from '@chakra-ui/react';
 
 const colors = {
-  brand: {
-    900: '#1a365d',
-    800: '#153e75',
-    700: '#2a69ac',
-  },
+  darkbluer: '#051139',
+  lightbluer: '#4ad0ed',
+  ghostwhiter: '#d2d6e6',
+  white: '#ffffff',
+  black: '#000000',
+  general: '#182147',
 };
-
 const theme = extendTheme({ colors, fonts: { body: "'Source Code Pro', monospace;" } });
 
 export const meta: MetaFunction = () => ({
@@ -136,34 +136,6 @@ const Document = withEmotionCache(({ children }: DocumentProps, emotionCache) =>
 });
 
 export default function App() {
-  function getColorMode(cookies: string) {
-    const match = cookies.match(new RegExp(`(^| )${CHAKRA_COOKIE_COLOR_KEY}=([^;]+)`));
-    return match == null ? void 0 : match[2];
-  }
-
-  const DEFAULT_COLOR_MODE: 'dark' | 'light' | null = 'dark';
-
-  const CHAKRA_COOKIE_COLOR_KEY = 'chakra-ui-color-mode';
-
-  let cookies = useLoaderData();
-
-  // the client get the cookies from the document
-  // because when we do a client routing, the loader can have stored an outdated value
-  if (typeof document !== 'undefined') {
-    cookies = document.cookie;
-  }
-
-  let colorMode = useMemo(() => {
-    let color = getColorMode(cookies);
-
-    if (!color && DEFAULT_COLOR_MODE) {
-      cookies += ` ${CHAKRA_COOKIE_COLOR_KEY}=${DEFAULT_COLOR_MODE}`;
-      color = DEFAULT_COLOR_MODE;
-    }
-
-    return color;
-  }, [cookies]);
-
   return (
     <Document>
       <Outlet />
