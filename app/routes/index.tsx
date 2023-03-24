@@ -1,10 +1,11 @@
 import { FaRegArrowAltCircleDown } from 'react-icons/fa';
 import { Container, Box, Flex } from '@chakra-ui/react';
 import Presentation from '~/components/cards/Presentation';
+import Layout from '~/components/Layout';
 
 export default function Index() {
   return (
-    <>
+    <Layout>
       <section id='home'>
         <Box
           backgroundImage={`url("/img/bg.webp")`}
@@ -28,7 +29,7 @@ export default function Index() {
           </Container>
         </Box>
       </section>
-    </>
+    </Layout>
   );
 }
 

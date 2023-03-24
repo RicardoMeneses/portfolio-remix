@@ -1,10 +1,12 @@
 import { Card, useColorModeValue, Image, CardBody, Text, Flex } from '@chakra-ui/react';
+import { useTranslation } from 'react-i18next';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { TypeAnimation } from 'react-type-animation';
 import DownloadCv from '../buttons/DownloadCV';
 import IconLinkButton from '../buttons/IconLinkButton';
 
 const Presentation = () => {
+  let { t } = useTranslation();
   const bg = useColorModeValue('white', 'darkbluer');
   const textColor = useColorModeValue('darkbluer', 'ghostwhiter');
   return (
@@ -33,12 +35,12 @@ const Presentation = () => {
         marginRight={'auto'}
       />
       <CardBody marginTop='6rem'>
-        <Text textAlign='center'>¡Hola, Mundo! 👋🏻</Text>
+        <Text textAlign='center'>{t('home.hello')} 👋🏻</Text>
         <Text fontSize='2xl' textAlign='center'>
-          Soy Ricardo Meneses
+          {t('home.iam')} Ricardo Meneses
         </Text>
         <Text fontSize='sm' textAlign='center'>
-          Desarrollador Web Full Stack
+          {t('home.developer')}
         </Text>
         <TypeAnimation
           sequence={['Front-end', 1500, 'Back-end', 1500]}

@@ -1,5 +1,6 @@
 import { withEmotionCache } from '@emotion/react';
 import type { MetaFunction, LinksFunction, LoaderFunction } from '@remix-run/node';
+import { json } from '@remix-run/node';
 import {
   Links,
   LiveReload,
@@ -12,6 +13,8 @@ import {
 import { useContext, useEffect, useMemo } from 'react';
 import { ServerStyleContext, ClientStyleContext } from './context';
 import { extendTheme, ChakraProvider, cookieStorageManagerSSR } from '@chakra-ui/react';
+import { useTranslation } from 'react-i18next';
+import i18next from './i18next.server';
 
 const colors = {
   darkbluer: '#051139',
@@ -46,8 +49,20 @@ interface DocumentProps {
 
 // This will return cookies
 export const loader: LoaderFunction = async ({ request }) => {
-  return request.headers.get('cookie') ?? '';
+  let locale = await i18next.getLocale(request);
+  return json({ cookies: request.headers.get('cookie') ?? '', locale });
 };
+
+export let handle = {
+  i18n: 'common',
+};
+
+export function useChangeLanguage(locale: string) {
+  let { i18n } = useTranslation();
+  useEffect(() => {
+    i18n.changeLanguage(locale);
+  }, [locale, i18n]);
+}
 
 const Document = withEmotionCache(({ children }: DocumentProps, emotionCache) => {
   const serverStyleData = useContext(ServerStyleContext);
@@ -65,7 +80,8 @@ const Document = withEmotionCache(({ children }: DocumentProps, emotionCache) =>
 
   const CHAKRA_COOKIE_COLOR_KEY = 'chakra-ui-color-mode';
 
-  let cookies = useLoaderData();
+  let { cookies, locale } = useLoaderData();
+  let { i18n } = useTranslation();
 
   // the client get the cookies from the document
   // because when we do a client routing, the loader can have stored an outdated value
@@ -86,6 +102,8 @@ const Document = withEmotionCache(({ children }: DocumentProps, emotionCache) =>
     return color;
   }, [cookies]);
 
+  useChangeLanguage(locale);
+
   // Only executed on client
   useEffect(() => {
     // re-link sheet container
@@ -102,7 +120,8 @@ const Document = withEmotionCache(({ children }: DocumentProps, emotionCache) =>
 
   return (
     <html
-      lang='es'
+      lang={i18n.language}
+      dir={i18n.dir()}
       {...(colorMode && {
         'data-theme': colorMode,
         style: { colorScheme: colorMode },

@@ -1,0 +1,62 @@
+{
+  "home": {
+    "hello": "Hello, World!",
+    "iam": "I'm",
+    "developer": "Full Stack Web Developer",
+    "download": "Download CV"
+  },
+  "header": {
+    "home": "Home",
+    "about": "About me",
+    "projects": "Projects",
+    "resume": "Resume"
+  },
+  "about": {
+    "title": "About me",
+    "developer": "Full Stack Web Developer",
+    "me": "Web Developer with more than three years of experience in Full Stack with JavaScript / ReactJS / VueJS / NodeJS / MongoDB, constantly learning programming skills and professional growth.",
+    "interests": "Interests and Hobbies",
+    "programming": "Programming",
+    "pingPong": "Ping Pong",
+    "travel": "Travel",
+    "games": "Video game",
+    "read": "Read",
+    "music": "Music",
+    "soccer": "Soccer",
+    "cinema": "Cinema"
+  },
+  "projects": {
+    "title": "Projects",
+    "raccoon": "Raccoon Studio company website, informative and contact.",
+    "oleum": "E-commerce website for the sale and supply of essential oils.",
+    "crepini": "E-commerce website for the sale and supply of crepes.",
+    "all": "See all",
+    "see": "See project"
+  },
+  "resume": {
+    "title": "Resume",
+    "experience": "Experience",
+    "education": "Education",
+    "work": "Work experience",
+    "engineer": "Computer Systems Engineer",
+    "red": "Red ribbon in architecture design to create Web applications",
+    "black": "Black ribbon in architecture design to create Web applications",
+    "seo": "SEO Intern",
+    "seoDescription": "WEB positioning, Web Development, Review and correction of metadata.",
+    "seoDate": "October 2018 - December 2018",
+    "raccoon": "Development and support of multiple websites and e-commerce platforms. Successfully integrated AWS cloud services to fulfill application needs like: Sending notifications and emails with SNS, SES. Management and administration of EC2 servers. Use of S3 for resources administration. Route 53, Domain Name System (DNS). A CI/CD pipeline was implemented using Bitbucket Pipelines to automate the build and deployment of applications. Built-in Slack notifications to receive alerts on the status of the implementation and any issues that may arise.",
+    "raccoonDate": "February 2019 - December 2022",
+    "freelance": "Freelance Developer",
+    "freelanceDescription": "I collaborated in the development of a site for extreme sports using: NestJS, ReactJS, NextJS, multilingual support using i18n, use of multiple currencies to display depending on the country. Personal site development using: ReactJS, NextJS, Tailwind CSS, multilingual support with i18n.",
+    "freelanceDate": "December 2022 - February 2023",
+    "softSkills": "Soft Skills",
+    "communication": "Communication",
+    "teamwork": "Teamwork",
+    "adaptability": "Adaptability",
+    "leadership": "Leadership",
+    "technicalSkills": "Technical Skills"
+  },
+  "footer": {
+    "made": "Designed and developed by"
+  }
+}

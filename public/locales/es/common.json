@@ -1,0 +1,62 @@
+{
+  "home": {
+    "hello": "!Hola, Mundo!",
+    "iam": "Soy",
+    "developer": "Desarrollador Web Full Stack",
+    "download": "Descargar CV"
+  },
+  "header": {
+    "home": "Inicio",
+    "about": "Sobre mí",
+    "projects": "Proyectos",
+    "resume": "Resumen"
+  },
+  "about": {
+    "title": "Sobre mí",
+    "developer": "Desarrollador Web Full Stack",
+    "me": "Desarrollador Web con más de tres años de experiencia en Full Stack con JavaScript / ReactJS / VueJS / NodeJS / MongoDB, en constante aprendizaje de habilidades de programación y crecimiento profesional.",
+    "interests": "Intereses y Hobbies",
+    "programming": "Programación",
+    "pingPong": "Tenis de Mesa",
+    "travel": "Viajar",
+    "games": "Vídeo juegos",
+    "read": "Leer",
+    "music": "Música",
+    "soccer": "Fútbol",
+    "cinema": "Cine"
+  },
+  "projects": {
+    "title": "Proyectos",
+    "raccoon": "Sitio Web de la empresa RaccoonStudio, informartivo y de contacto.",
+    "oleum": "Sitio Web de comercio electrónico para la venta y suministro de aceites esenciales.",
+    "crepini": "Sitio Web de comercio electrónico para la venta y suministro de crepas",
+    "all": "Ver todos",
+    "see": "Ver proyecto"
+  },
+  "resume": {
+    "title": "Resumen",
+    "experience": "Experiencia",
+    "education": "Educación",
+    "work": "Laboral",
+    "engineer": "Ing. en Sistemas Computacionales",
+    "red": "Cinta roja en diseño de arquitecturas para crear aplicaciones Web",
+    "black": "Cinta negra en diseño de arquitecturas para crear aplicaciones Web",
+    "seo": "Becario SEO",
+    "seoDescription": "Posicionamiento WEB, Desarrollo Web, Revisión y corrección de metadatos.",
+    "seoDate": "Octubre 2018 - Diciembre 2018",
+    "raccoon": "Desarrollo y soporte de múltiples sitios web y plataformas de comercio electrónico. Servicios en la nube de AWS integrados con éxito para satisfacer necesidades de aplicaciones como: Envío de notificaciones y correos electrónicos con SNS, SES. Gestión y administración de servidores EC2. Uso de S3 para la administración de recursos. Route 53, sistema de nombres de dominio (DNS). Se implementó una canalización de CI/CD mediante Bitbucket Pipelines para automatizar la compilación y la implementación de aplicaciones. Notificaciones de Slack integradas para recibir alertas sobre el estado de la implementación y cualquier problema que pueda surgir.",
+    "raccoonDate": "Febrero 2019 - Diciembre 2022",
+    "freelance": "Desarrollador Autónomo",
+    "freelanceDescription": "Colabore en el desarrollo de un sitio para deportes extremos usando: NestJS, ReactJS, NextJS, soporte multilingüe usando i18n, uso de múltiples monedas para mostrar dependiendo del país. Desarrollo de sitio personal usando: ReactJS, NextJS , Tailwind CSS, soporte multilingüe con i18n.",
+    "freelanceDate": "Diciembre 2022 - Febrero 2023",
+    "softSkills": "Habilidades blandas",
+    "communication": "Comunicación",
+    "teamwork": "Trabajo en equipo",
+    "adaptability": "Adaptabilidad",
+    "leadership": "Liderazgo",
+    "technicalSkills": "Habilidades Técnicas"
+  },
+  "footer": {
+    "made": "Diseñado y desarrollado por"
+  }
+}
