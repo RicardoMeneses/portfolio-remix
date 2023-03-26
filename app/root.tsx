@@ -15,6 +15,7 @@ import { ServerStyleContext, ClientStyleContext } from './context';
 import { extendTheme, ChakraProvider, cookieStorageManagerSSR } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
 import i18next from './i18next.server';
+import mainStyles from '~/styles/main.css';
 
 const colors = {
   darkbluer: '#051139',
@@ -39,6 +40,10 @@ export let links: LinksFunction = () => {
     {
       rel: 'stylesheet',
       href: 'https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@600;700&display=swap',
+    },
+    {
+      rel: 'stylesheet',
+      href: mainStyles,
     },
   ];
 };
@@ -143,6 +148,8 @@ const Document = withEmotionCache(({ children }: DocumentProps, emotionCache) =>
           className: `chakra-ui-${colorMode}`,
         })}
       >
+        <div className='stelle bianche'></div>
+        <div className='stelle giganti'></div>
         <ChakraProvider colorModeManager={cookieStorageManagerSSR(cookies)} theme={theme}>
           {children}
         </ChakraProvider>

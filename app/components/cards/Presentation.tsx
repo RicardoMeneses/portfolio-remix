@@ -30,13 +30,15 @@ const Presentation = () => {
         right='0'
         height='11rem'
         width='11rem'
-        border='2px solid #4ad0ed'
+        border='3px solid #4ad0ed'
         marginLeft={'auto'}
         marginRight={'auto'}
       />
       <CardBody marginTop='6rem'>
-        <Text textAlign='center'>{t('home.hello')} 👋🏻</Text>
-        <Text fontSize='2xl' textAlign='center'>
+        <Text fontSize='21px' textAlign='center'>
+          {t('home.hello')} 👋🏻
+        </Text>
+        <Text fontSize='3xl' textAlign='center'>
           {t('home.iam')} Ricardo Meneses
         </Text>
         <Text fontSize='sm' textAlign='center'>

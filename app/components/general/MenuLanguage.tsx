@@ -10,7 +10,7 @@ interface MenuLanguageProps {
 }
 
 const MenuLanguage: React.FC<MenuLanguageProps> = ({ children, language, navbar }) => {
-  const textColor = useColorModeValue('white', 'darkbluer');
+  const textColor = useColorModeValue('#fff', '#051139cc');
   return (
     <Menu
       menuButton={

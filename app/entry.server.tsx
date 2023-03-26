@@ -59,8 +59,6 @@ export default async function handleRequest(
   );
 
   return new Promise((resolve, reject) => {
-    let didError = false;
-
     let { pipe, abort } = renderToPipeableStream(
       <I18nextProvider i18n={instance}>
         <RemixServer context={remixContext} url={request.url} />
@@ -84,8 +82,6 @@ export default async function handleRequest(
           reject(error);
         },
         onError(error: unknown) {
-          didError = true;
-
           console.error(error);
         },
       }
