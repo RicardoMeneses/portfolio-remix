@@ -23,6 +23,7 @@ import { IoLogoGameControllerB } from 'react-icons/io';
 import { FaFutbol } from 'react-icons/fa';
 import Interest from '~/components/cards/Interest';
 import Projects from '~/components/sections/Projects';
+import Resume from '~/components/sections/Resume';
 
 export const links: LinksFunction = () => {
   return [
@@ -146,6 +147,7 @@ export default function Index() {
           </Flex>
         </section>
         <Projects />
+        <Resume />
       </Container>
     </Layout>
   );

@@ -78,6 +78,8 @@ const Project: React.FC<ProyectProps> = ({ project, index }) => {
           <Flex
             gap={2}
             alignItems='center'
+            justifyContent='center'
+            marginLeft={`${index % 2 === 0 ? '' : 'auto'}`}
             border='3px solid #4ad0ed'
             width={{ base: 'full', md: 'fit-content' }}
             padding='5px 10px'
