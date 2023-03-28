@@ -95,20 +95,3 @@ const Project: React.FC<ProyectProps> = ({ project, index }) => {
 };
 
 export default Project;
-
-/*
-<div className=' gap-10 md:gap-5 lg:gap-10 items-center justify-center'>
-
-
-        <Link
-          to={link}
-          target='_blank'
-          className={`flex gap-2 items-center ${
-            index % 2 === 0 ? '' : 'float-right'
-          } text-ghostwhite dark:text-darkblue justify-center px-3 py-2 w-full md:w-fit ring-2 ring-deepskyblue hover:bg-deepskyblue hover:text-white`}
-        >
-          {t('projects.see')} <RiArrowRightLine />
-        </Link>
-
-    </div>
-*/

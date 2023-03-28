@@ -27,7 +27,9 @@ const Interests: React.FC<InterestsProps> = ({ icon, title }) => {
       >
         {React.createElement(icon, { style: { color: textColor, fontSize: '3rem' } })}
       </Flex>
-      <Text textColor={textColor}>{title}</Text>
+      <Text textColor={textColor} _hover={{ cursor: 'default' }}>
+        {title}
+      </Text>
     </Flex>
   );
 };

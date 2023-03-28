@@ -22,7 +22,11 @@ const Interest: React.FC<InterestsProps> = ({ icon, title }) => {
           {React.createElement(icon, { style: { color: textColor, fontSize: '30px' } })}
         </Flex>
       </Box>
-      <Text textAlign='center' fontSize={{ base: '12px', md: '14px', lg: '17px' }}>
+      <Text
+        textAlign='center'
+        fontSize={{ base: '12px', md: '14px', lg: '17px' }}
+        _hover={{ cursor: 'default' }}
+      >
         {title}
       </Text>
     </Flex>

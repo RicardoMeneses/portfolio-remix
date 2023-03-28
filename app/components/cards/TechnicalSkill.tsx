@@ -19,6 +19,7 @@ const TechnicalSkill: React.FC<TechnicalSkillProps> = ({
   return (
     <Flex
       direction='column'
+      role='group'
       gap={3}
       justifyContent='center'
       alignItems='center'
@@ -32,12 +33,12 @@ const TechnicalSkill: React.FC<TechnicalSkillProps> = ({
         justifyContent='center'
         alignItems='center'
         transition='all 0.3s ease'
-        _hover={{ backgroundColor: bgHover }}
+        _groupHover={{ backgroundColor: bgHover }}
         border={`2px solid ${outline}`}
       >
         {React.createElement(icon, { style: { color: textColor, fontSize: '3rem' } })}
       </Flex>
-      <Text textColor={textColor} fontSize='2xl'>
+      <Text textColor={textColor} fontSize='2xl' _hover={{ cursor: 'default' }}>
         {text}
       </Text>
     </Flex>
