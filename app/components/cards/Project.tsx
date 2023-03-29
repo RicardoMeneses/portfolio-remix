@@ -64,6 +64,7 @@ const Project: React.FC<ProyectProps> = ({ project, index }) => {
         />
       </Box>
       <Box
+        className='reveal'
         width={{ base: 'full', md: '50%' }}
         textAlign={{ base: 'center', md: index % 2 === 0 ? 'left' : 'right' }}
         textColor={textColor}

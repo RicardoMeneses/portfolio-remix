@@ -14,9 +14,11 @@ import { FaBars, FaMoon, FaSun } from 'react-icons/fa';
 import MenuLanguage from './MenuLanguage';
 import { MenuItem } from '@szhsin/react-menu';
 import { useEffect, useState } from 'react';
+import SideBar from './SideBar';
 
 const Header = () => {
   const [navbar, setNavbar] = useState(false);
+  const [openMenu, setOpenMenu] = useState(false);
   let { i18n, t } = useTranslation();
 
   const changeLanguage = (newLanguage: string) => {
@@ -36,8 +38,42 @@ const Header = () => {
     }
   };
 
+  const handleClickScroll = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      // 👇 Will scroll smoothly to the top of the next section
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const onScroll = () => {
+    let sections = document.querySelectorAll('section');
+    let menu = document.querySelectorAll('header p');
+    window.onscroll = () => {
+      sections.forEach((i) => {
+        let top = window.scrollY;
+        let offset = i.offsetTop - 150;
+        let height = i.offsetHeight;
+        let id = i.getAttribute('id');
+
+        if (top >= offset && top < offset + height) {
+          menu.forEach((link) => {
+            link.classList.remove('activeLink');
+            document.querySelector('header p[id*=' + id + ']')?.classList.add('activeLink');
+          });
+        }
+      });
+    };
+  };
+
+  const handleOpen = () => {
+    setOpenMenu(!openMenu);
+  };
+
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
+
+    onScroll();
 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -59,36 +95,50 @@ const Header = () => {
         paddingX={{ base: 10, md: 10, lg: 20 }}
         justifyContent='space-between'
       >
-        <Heading as='h1' size='lg' color='lightbluer'>
+        <Heading
+          _hover={{ cursor: 'pointer' }}
+          as='h1'
+          size='lg'
+          color='lightbluer'
+          onClick={() => handleClickScroll('home')}
+        >
           Ricardo
         </Heading>
         <Hide below='md'>
           <Flex gap={9} alignItems='center'>
             <Text
+              id='homeLink'
               fontWeight={700}
               _hover={{ cursor: 'pointer' }}
               color={navbar ? textColor : 'white'}
+              onClick={() => handleClickScroll('home')}
             >
               {t('header.home')}
             </Text>
             <Text
+              id='aboutMeLink'
               fontWeight={700}
               _hover={{ cursor: 'pointer' }}
               color={navbar ? textColor : 'white'}
+              onClick={() => handleClickScroll('aboutMe')}
             >
               {t('header.about')}
             </Text>
             <Text
+              id='projectsLink'
               fontWeight={700}
               _hover={{ cursor: 'pointer' }}
               color={navbar ? textColor : 'white'}
+              onClick={() => handleClickScroll('projects')}
             >
               {t('header.projects')}
             </Text>
             <Text
+              id='resumeLink'
               fontWeight={700}
               _hover={{ cursor: 'pointer' }}
               color={navbar ? textColor : 'white'}
+              onClick={() => handleClickScroll('resume')}
             >
               {t('header.resume')}
             </Text>
@@ -128,9 +178,10 @@ const Header = () => {
                 )}
               </MenuLanguage>
             </Flex>
-            <FaBars color={navbar ? textColor : 'white'} fontSize='20px' />
+            <FaBars color={navbar ? textColor : 'white'} fontSize='20px' onClick={handleOpen} />
           </Flex>
         </Show>
+        <SideBar openMenu={openMenu} handleOpen={handleOpen} />
       </Flex>
     </header>
   );

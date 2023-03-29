@@ -24,6 +24,7 @@ import { FaFutbol } from 'react-icons/fa';
 import Interest from '~/components/cards/Interest';
 import Projects from '~/components/sections/Projects';
 import Resume from '~/components/sections/Resume';
+import { useEffect } from 'react';
 
 export const links: LinksFunction = () => {
   return [
@@ -70,6 +71,28 @@ export default function Index() {
       text: t('about.cinema'),
     },
   ];
+
+  function reveal() {
+    const reveals = document.querySelectorAll('.reveal');
+
+    for (var i = 0; i < reveals.length; i++) {
+      var windowHeight = window.innerHeight;
+      var elementTop = reveals[i].getBoundingClientRect().top;
+      var elementVisible = 100;
+
+      if (elementTop < windowHeight - elementVisible) {
+        reveals[i].classList.add('activeElement');
+      } else {
+        reveals[i].classList.remove('activeElement');
+      }
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener('scroll', reveal);
+
+    return () => window.removeEventListener('scroll', reveal);
+  }, []);
   return (
     <Layout>
       <section id='home'>
@@ -110,7 +133,7 @@ export default function Index() {
             justifyContent='center'
             gap={10}
           >
-            <Box width={{ base: 'full', md: '50%' }}>
+            <Box width={{ base: 'full', md: '50%' }} className='reveal'>
               <Text textColor={textColor} marginBottom='25px' textAlign='center' fontSize='xl'>
                 {t('about.me')}
               </Text>
@@ -127,6 +150,7 @@ export default function Index() {
                 {t('about.interests')}
               </Heading>
               <Grid
+                className='reveal'
                 gap={4}
                 marginTop={4}
                 templateColumns={{

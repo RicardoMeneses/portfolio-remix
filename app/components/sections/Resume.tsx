@@ -284,6 +284,7 @@ const Resume = () => {
       </Heading>
 
       <Grid
+        className='reveal'
         gap={5}
         marginTop={10}
         templateColumns={{
