@@ -184,7 +184,7 @@ const Document = withEmotionCache(({ children }: DocumentProps, emotionCache) =>
         </ChakraProvider>
         <ScrollRestoration />
         <Scripts />
-        <LiveReload port={Number(process.env.PORT) || 3000} />
+        <LiveReload />
       </body>
     </html>
   );
