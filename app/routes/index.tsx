@@ -36,7 +36,6 @@ export const links: LinksFunction = () => {
 export default function Index() {
   const { t } = useTranslation();
   const textColor = useColorModeValue('#051139', '#fff');
-
   const interests = [
     {
       icon: RiCodeLine,
@@ -88,10 +87,29 @@ export default function Index() {
     }
   }
 
+  function checkBoxes() {
+    const boxes = document.querySelectorAll('.projectCard');
+    const triggerBottom = (window.innerHeight / 5) * 4;
+
+    boxes.forEach((box) => {
+      const boxTop = box.getBoundingClientRect().top;
+
+      if (boxTop < triggerBottom) {
+        box.classList.add('show');
+      } else {
+        box.classList.remove('show');
+      }
+    });
+  }
+
   useEffect(() => {
     window.addEventListener('scroll', reveal);
+    window.addEventListener('scroll', checkBoxes);
 
-    return () => window.removeEventListener('scroll', reveal);
+    return () => {
+      window.removeEventListener('scroll', reveal);
+      window.removeEventListener('scroll', checkBoxes);
+    };
   }, []);
   return (
     <Layout>

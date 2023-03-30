@@ -22,6 +22,7 @@ const Project: React.FC<ProyectProps> = ({ project, index }) => {
   const backgroundColor = useColorModeValue('#051139', '#fff');
   const textColor = useColorModeValue('#fff', '#051139');
   const borderColor = useColorModeValue('#fff', '#051139');
+
   return (
     <Flex
       direction={{ base: 'column', md: 'row' }}
@@ -32,6 +33,9 @@ const Project: React.FC<ProyectProps> = ({ project, index }) => {
       marginTop='50px'
       borderRadius='3xl'
       padding='2.5rem'
+      className='projectCard'
+      transform={'translateX(400%)'}
+      transition={'transform 0.8s ease'}
     >
       <Box
         height={{ base: '10rem', md: '200px', lg: '300px' }}
@@ -64,7 +68,6 @@ const Project: React.FC<ProyectProps> = ({ project, index }) => {
         />
       </Box>
       <Box
-        className='reveal'
         width={{ base: 'full', md: '50%' }}
         textAlign={{ base: 'center', md: index % 2 === 0 ? 'left' : 'right' }}
         textColor={textColor}

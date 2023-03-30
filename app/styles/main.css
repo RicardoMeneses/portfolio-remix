@@ -43,6 +43,14 @@ html[data-theme='dark'] .activeLinkMovil {
   animation: space 55s linear infinite;
 }
 
+.projectCard:nth-of-type(even) {
+  transform: translateX(-400%);
+}
+
+.projectCard.show {
+  transform: translateX(0);
+}
+
 .stelle.bianche {
   width: 2px;
   height: 2px;
