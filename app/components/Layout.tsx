@@ -6,7 +6,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <Box position='relative' minHeight={{ md: '100vh' }}>
       <Header />
-      <main>
+      <main style={{ overflow: 'hidden' }}>
         {children}
         <Footer />
       </main>
