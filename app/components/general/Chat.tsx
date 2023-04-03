@@ -17,6 +17,7 @@ import {
   Input,
   InputRightElement,
   Skeleton,
+  Button,
 } from '@chakra-ui/react';
 import { Form } from '@remix-run/react';
 import { useEffect, useRef, useState } from 'react';
@@ -120,7 +121,7 @@ const Chat = () => {
           </ModalBody>
           <ModalFooter>
             <Form
-              style={{ width: '100%' }}
+              style={{ width: '100%', display: 'flex' }}
               onSubmit={async (e) => {
                 e.preventDefault();
                 const formData = new FormData(e.target as HTMLFormElement);
@@ -158,8 +159,16 @@ const Chat = () => {
                   placeholder='Escribe tu mensaje'
                   required
                 />
-                <InputRightElement children={<FiSend />} />
               </InputGroup>
+              <IconButton
+                type='submit'
+                aria-label='ChatGpt'
+                bg={bgColor}
+                color={color}
+                colorScheme='white'
+                onClick={onOpen}
+                icon={<FiSend />}
+              />
             </Form>
           </ModalFooter>
         </ModalContent>
