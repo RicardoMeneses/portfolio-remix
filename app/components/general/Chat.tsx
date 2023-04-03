@@ -105,12 +105,7 @@ const Chat = () => {
               <Box key={message.id}>
                 <Flex gap={3} justifyContent={message.type === 'user' ? 'flex-end' : 'flex-start'}>
                   <Avatar
-                    name='Ricardo Meneses Morales'
-                    src={
-                      message.type === 'user'
-                        ? 'https://img.myloview.com/stickers/default-avatar-profile-icon-vector-social-media-user-image-700-205124837.jpg'
-                        : '/img/me.webp'
-                    }
+                    src={message.type === 'user' ? '' : '/img/me.webp'}
                     order={message.type === 'user' ? 2 : 0}
                   />
                   <Box>
