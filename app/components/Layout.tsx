@@ -1,4 +1,5 @@
 import { Box } from '@chakra-ui/react';
+import Chat from './general/Chat';
 import Footer from './general/Footer';
 import Header from './general/Header';
 
@@ -10,6 +11,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         {children}
         <Footer />
       </main>
+      <Chat />
     </Box>
   );
 };
