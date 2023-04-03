@@ -22,7 +22,6 @@ export async function chatGpt(prompt: string) {
       }),
     });
     const chatJson = await chat.json();
-    console.log('chatJson', chatJson);
     return {
       id,
       type: 'assistant',
