@@ -15,9 +15,8 @@ import {
   Text,
   InputGroup,
   Input,
-  InputRightElement,
   Skeleton,
-  Button,
+  Flex,
 } from '@chakra-ui/react';
 import { Form } from '@remix-run/react';
 import { useEffect, useRef, useState } from 'react';
@@ -29,11 +28,13 @@ const DEFAULT_CONVERSATION = [
     id: '1',
     type: 'bot',
     text: 'Hola, soy RicardoBot y estoy hecho con ChatGPT, un placer hablar contigo 👋',
+    hour: new Date().getHours() + ':' + new Date().getMinutes(),
   },
   {
     id: '2',
     type: 'bot',
     text: 'Puedes hacerme cualquier pregunta sobre mi para conocerme.',
+    hour: new Date().getHours() + ':' + new Date().getMinutes(),
   },
 ];
 
@@ -78,7 +79,7 @@ const Chat = () => {
               <AvatarBadge boxSize='1.25em' bg='green.500' />
             </Avatar>
             <Box>
-              <Text fontSize='14px'>Ricardo Meneses Morales</Text>
+              <Text fontSize='14px'>RicardoBot</Text>
               <Text fontSize='2xs'>En línea</Text>
             </Box>
           </ModalHeader>
@@ -90,19 +91,47 @@ const Chat = () => {
             borderTop='1px solid'
             ref={container}
           >
+            <Text
+              margin='0 auto'
+              bg='gray.500'
+              w='fit-content'
+              color='gray.900'
+              p='2px 8px'
+              borderRadius='full'
+            >
+              Hoy
+            </Text>
             {messages.map((message) => (
-              <Box
-                mt={2}
-                key={message.id}
-                bg={message.type === 'user' ? '#58e32a' : bgColorMessage}
-                textColor={colorMessage}
-                w='48'
-                p={2}
-                borderRightRadius={10}
-                borderTopLeftRadius={10}
-                marginLeft={message.type === 'user' ? 'auto' : 0}
-              >
-                <Text fontSize='14px'>{message.text}</Text>
+              <Box key={message.id}>
+                <Flex gap={3} justifyContent={message.type === 'user' ? 'flex-end' : 'flex-start'}>
+                  <Avatar
+                    name='Ricardo Meneses Morales'
+                    src={
+                      message.type === 'user'
+                        ? 'https://img.myloview.com/stickers/default-avatar-profile-icon-vector-social-media-user-image-700-205124837.jpg'
+                        : '/img/me.webp'
+                    }
+                    order={message.type === 'user' ? 2 : 0}
+                  />
+                  <Box>
+                    <Box
+                      mt={4}
+                      bg={message.type === 'user' ? '#58e32a' : bgColorMessage}
+                      textColor={colorMessage}
+                      w='48'
+                      p={2}
+                      borderTopRightRadius={message.type === 'user' ? 0 : 10}
+                      borderBottomRightRadius={10}
+                      borderTopLeftRadius={message.type === 'user' ? 10 : 0}
+                      borderBottomLeftRadius={10}
+                    >
+                      <Text fontSize='14px'>{message.text}</Text>
+                    </Box>
+                    <Text fontSize='2xs' float={message.type === 'user' ? 'right' : 'left'}>
+                      {message.hour}
+                    </Text>
+                  </Box>
+                </Flex>
               </Box>
             ))}
             {loading && (
@@ -132,6 +161,7 @@ const Chat = () => {
                     id: String(Date.now()),
                     type: 'user',
                     text: message,
+                    hour: new Date().getHours() + ':' + new Date().getMinutes(),
                   })
                 );
                 setLoading(true);
@@ -147,7 +177,12 @@ const Chat = () => {
                 const data = await res.json();
                 setLoading(false);
 
-                setMessages((messages) => messages.concat(data));
+                setMessages((messages) =>
+                  messages.concat({
+                    ...data,
+                    hour: new Date().getHours() + ':' + new Date().getMinutes(),
+                  })
+                );
               }}
             >
               <InputGroup>
