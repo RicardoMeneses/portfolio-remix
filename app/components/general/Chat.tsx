@@ -32,13 +32,13 @@ const DEFAULT_CONVERSATION = [
   {
     id: '1',
     type: 'bot',
-    text: 'Hola, soy RicardoBot y estoy hecho con ChatGPT, un placer hablar contigo 👋',
+    text: 'Hola 👋, soy RicardoBot, estoy hecho con ChatGPT.',
     hour,
   },
   {
     id: '2',
     type: 'bot',
-    text: 'Puedes hacerme cualquier pregunta sobre mi para conocerme.',
+    text: 'Estoy aquí para ayudarte con tus dudas sobre mi, puedes preguntarme lo que quieras, por ejemplo: "¿Qué tecnologías usas?"',
     hour,
   },
 ];
