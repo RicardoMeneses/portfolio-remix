@@ -23,18 +23,23 @@ import { useEffect, useRef, useState } from 'react';
 import { AiFillMessage } from 'react-icons/ai';
 import { FiSend } from 'react-icons/fi';
 
+const hour =
+  new Date().getHours() + ':' + Number(new Date().getMinutes() < 10)
+    ? '0' + new Date().getMinutes()
+    : new Date().getMinutes();
+
 const DEFAULT_CONVERSATION = [
   {
     id: '1',
     type: 'bot',
     text: 'Hola, soy RicardoBot y estoy hecho con ChatGPT, un placer hablar contigo 👋',
-    hour: new Date().getHours() + ':' + new Date().getMinutes(),
+    hour,
   },
   {
     id: '2',
     type: 'bot',
     text: 'Puedes hacerme cualquier pregunta sobre mi para conocerme.',
-    hour: new Date().getHours() + ':' + new Date().getMinutes(),
+    hour,
   },
 ];
 
@@ -156,7 +161,7 @@ const Chat = () => {
                     id: String(Date.now()),
                     type: 'user',
                     text: message,
-                    hour: new Date().getHours() + ':' + new Date().getMinutes(),
+                    hour,
                   })
                 );
                 setLoading(true);
@@ -175,7 +180,7 @@ const Chat = () => {
                 setMessages((messages) =>
                   messages.concat({
                     ...data,
-                    hour: new Date().getHours() + ':' + new Date().getMinutes(),
+                    hour,
                   })
                 );
               }}
