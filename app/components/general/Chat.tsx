@@ -24,9 +24,9 @@ import { AiFillMessage } from 'react-icons/ai';
 import { FiSend } from 'react-icons/fi';
 
 const hour =
-  new Date().getHours() + ':' + Number(new Date().getMinutes() < 10)
-    ? '0' + new Date().getMinutes()
-    : new Date().getMinutes();
+  new Date().getHours() +
+  ':' +
+  (Number(new Date().getMinutes() < 10) ? '0' + new Date().getMinutes() : new Date().getMinutes());
 
 const DEFAULT_CONVERSATION = [
   {
