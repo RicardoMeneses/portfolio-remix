@@ -59,6 +59,16 @@ const Chat = () => {
       div.scrollTo(0, div.scrollHeight);
     }
   }, [messages]);
+
+  const getHour = () => {
+    return (
+      new Date().getHours() +
+      ':' +
+      (Number(new Date().getMinutes() < 10)
+        ? '0' + new Date().getMinutes()
+        : new Date().getMinutes())
+    );
+  };
   return (
     <Box position='fixed' bottom={10} right={10}>
       <IconButton
@@ -161,7 +171,7 @@ const Chat = () => {
                     id: String(Date.now()),
                     type: 'user',
                     text: message,
-                    hour,
+                    hour: getHour(),
                   })
                 );
                 setLoading(true);
@@ -180,7 +190,7 @@ const Chat = () => {
                 setMessages((messages) =>
                   messages.concat({
                     ...data,
-                    hour,
+                    hour: getHour(),
                   })
                 );
               }}
