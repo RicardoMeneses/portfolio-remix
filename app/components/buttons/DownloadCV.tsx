@@ -6,9 +6,9 @@ import { useTranslation } from 'react-i18next';
 const DownloadCv = () => {
   const { i18n, t } = useTranslation();
   const spanishResume =
-    'https://drive.google.com/file/d/1bRU5FqLhiBJ6ftKpX14cFPttXLtd0nuq/view?usp=share_link';
+    'https://drive.google.com/file/d/1Dxx3MKUfXwo7Bqbsm5UroVtzBlGUTevI/view?usp=sharing';
   const englishResume =
-    'https://drive.google.com/file/d/1XgMZAm1TPJCxvHMhOORjtB9-WFdpBcmJ/view?usp=share_link';
+    'https://drive.google.com/file/d/11bi1rsSQnNsIKFpOXitVN2iIvxq_ouLy/view?usp=sharing';
 
   const textColor = useColorModeValue('darkbluer', 'ghostwhiter');
 
