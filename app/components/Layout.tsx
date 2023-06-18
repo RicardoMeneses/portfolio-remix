@@ -11,7 +11,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         {children}
         <Footer />
       </main>
-      <Chat />
+      {/* <Chat /> */}
     </Box>
   );
 };

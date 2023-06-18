@@ -28,6 +28,7 @@ export async function chatGpt(prompt: string) {
       text: chatJson.choices[0].message.content,
     };
   } catch (error) {
+    console.error(error);
     return errorMessage;
   }
 }
